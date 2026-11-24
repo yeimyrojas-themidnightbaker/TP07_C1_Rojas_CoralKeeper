@@ -31,6 +31,8 @@ public class UIGameOverMenu : MonoBehaviour
 
     private void OnBtnRetryClicked()
     {
+        // Warning: "Gameplay" y "MainMenu" (línea de abajo) son strings mágicos repetidos en varios scripts.
+        // Centralizalos en constantes compartidas para no depender de escribirlos igual en cada archivo.
         SceneManager.LoadScene("Gameplay");
     }
 

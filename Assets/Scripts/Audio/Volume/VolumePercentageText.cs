@@ -28,6 +28,7 @@ public class VolumePercentageText : MonoBehaviour
     }
     private void OnDisable()
     {
+        // Suggestion: Este switch repite el de OnEnable. Podrías tener en AudioDataSo un único evento OnVolumeChanged(AudioChannel, float) y filtrar por canal.
         switch(channel)
         {
             case AudioChannel.Master:

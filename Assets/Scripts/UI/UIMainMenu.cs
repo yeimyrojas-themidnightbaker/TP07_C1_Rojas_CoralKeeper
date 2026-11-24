@@ -52,11 +52,14 @@ btnExit.gameObject.SetActive(false);
     private void OnBtnPlayClicked()
     {
         panelMainMenu.SetActive(false);
+        // Suggestion: 0.5f es un número mágico y se repite en OnBtnExitClicked. Pasalo a una const (por ejemplo ButtonActionDelay).
         Invoke(nameof(PlayAction), 0.5f);
     }
 
     private void PlayAction()
     {
+        // Warning: Nombre de escena hardcodeado, el mismo string aparece en UIPauseMenu y UIGameOverMenu.
+        // Usá una constante compartida o un campo serializado con el nombre de la escena.
         SceneManager.LoadScene("Gameplay");
     }
 

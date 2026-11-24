@@ -22,6 +22,8 @@ public class Projectile : MonoBehaviour
             }
             else if (hit.collider.TryGetComponent(out PlayerHealth playerHealth))
             {
+                // Suggestion: Al jugador no le llega projectileData.Damage, TakeHit siempre resta 1. Si cambiás el daño de ProjectileSpineData no tiene efecto.
+                // Hacé que TakeHit reciba el daño como parámetro, igual que EnemyHealth.TakeDamage.
                 playerHealth.TakeHit();
             }
             if (projectileData.HitVfx != null)

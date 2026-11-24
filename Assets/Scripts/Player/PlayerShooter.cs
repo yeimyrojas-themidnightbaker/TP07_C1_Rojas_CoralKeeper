@@ -38,6 +38,7 @@ public class PlayerShooter : MonoBehaviour
         enabled = false;
     }
 
+    // Suggestion: AnyKeyHeld está duplicado igual en PlayerMovement.cs. Movelo a una clase estática de utilidades de input para no repetirlo.
     private bool AnyKeyHeld(KeyCode[] keys)
     {
         foreach (KeyCode key in keys)

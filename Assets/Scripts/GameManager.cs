@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
 
     private void LoadGameOver()
     {
+        // Warning: Nombre de escena como string mágico. Si renombrás la escena, esto falla recién en runtime.
+        // Declaralo como const (por ejemplo en una clase SceneNames) y reusalo en todos los LoadScene del proyecto.
         SceneManager.LoadScene("GameOver");
     }
 }

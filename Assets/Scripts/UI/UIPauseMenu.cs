@@ -47,6 +47,8 @@ public class UIPauseMenu : MonoBehaviour
     }
     private void Update()
     {
+        // Warning: Escape sigue pausando aunque la partida ya terminó (GameManager.EndGame ya corrió y está esperando el Invoke de LoadGameOver).
+        // Con timeScale en 0 el Invoke queda congelado y el menú de pausa se abre sobre la muerte o la victoria. Exponé un IsGameEnded en GameManager y chequealo acá.
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             OnBtnContinueClicked();
@@ -88,6 +90,8 @@ public class UIPauseMenu : MonoBehaviour
     private void OnBtnMainMenuClicked()
     {
         gameManager.SetPaused(false);
+        // Warning: Strings mágicos de escena ("MainMenu" acá y "Gameplay" en OnBtnRetryClicked).
+        // Reemplazalos por constantes compartidas con el resto de los LoadScene.
         SceneManager.LoadScene("MainMenu");
     }
     private void OnBtnRetryClicked()
